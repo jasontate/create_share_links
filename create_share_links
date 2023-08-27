@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+def format_band_name(name):
+	return name.lower().replace(" ", "+")
+
+def create_song_link(band, song):
+	return f"https://chorus.fm/share/song/{format_band_name(band)}/{format_band_name(song)}"
+
+def create_album_link(band, album):
+	return f"https://chorus.fm/share/album/{format_band_name(band)}/{format_band_name(album)}"
+
+# Read the input file
+input_file = "music_to_share.md"
+output_lines = []
+
+with open(input_file, "r") as file:
+	lines = file.readlines()
+
+	in_songs_section = False
+	in_albums_section = False
+
+	for line in lines:
+		line = line.strip()
+
+		if line == "# Songs":
+			in_songs_section = True
+			in_albums_section = False
+		elif line == "# Albums":
+			in_songs_section = False
+			in_albums_section = True
+		elif in_songs_section and "-" in line:
+			parts = line.split(" - ")
+			band = parts[0]
+			song = parts[1]
+			output_lines.append(create_song_link(band, song))
+		elif in_albums_section and "-" in line:
+			parts = line.split(" - ")
+			band = parts[0]
+			album = parts[1]
+			output_lines.append(create_album_link(band, album))
+
+# Append the formatted links to the file
+with open(input_file, "a") as file:
+	file.write("\n".join(output_lines) + "\n")
