@@ -15,7 +15,7 @@ Fall Out Boy - Take This To Your Grave
 
 Once the script is run, it'll append to the file the share links at the bottom. For example, the above would output these links at the bottom of the file: 
 
-https://chorus.fm/share/song/mxpx/doing+time
-https://chorus.fm/share/song/the+ataris/answers
-https://chorus.fm/share/album/blink-182/enema+of+the+state
-https://chorus.fm/share/album/fall+out+boy/take+this+to+your+grave
+https://chorus.fm/share/song/mxpx/doing+time  
+https://chorus.fm/share/song/the+ataris/answers  
+https://chorus.fm/share/album/blink-182/enema+of+the+state  
+https://chorus.fm/share/album/fall+out+boy/take+this+to+your+grave  
